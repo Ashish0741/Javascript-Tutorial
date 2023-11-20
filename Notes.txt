@@ -1,0 +1,602 @@
+************************************************************************************************
+-- Javascript is 
+    1. high level language
+    2. multi paradigm language
+    3. object oriented language
+    4. synchronous language
+    5. single threaded language
+
+-- It is language of web development it makes web pages and web apps works dynamically.
+
+-- Every browser has embedded javascript engine and console
+    for eg. chrome has v8 engine to run javascript code
+
+-- The programs in this language is called as script.
+    -- they can be written in html code or run automatically on page load
+
+-- Node.js
+    -- It is open source, cross platform, backend javascript runtime environment that runs on v8 engine and executes javascript code outside the browser.
+
+// console.log('Welcome to JS Tutorial')
+
+// let a = 98
+
+// console.log('a : ' + a)
+
+// let b = 89 + 789
+
+// console.log('b : ' + b)
+
+
+************************************************************************************************
+// Variables in JS
+************************************************************************************************
+
+console.log('Variables in JS')
+
+var a = 89
+
+console.log(a)
+
+var greet = 'hello'
+
+var is_available = true
+
+console.log(greet)
+
+console.log(is_available)
+
+************************************************************************************************
+// Arrays in JS
+************************************************************************************************
+
+console.log('Arrays in JS')
+
+// Arrays provides an ordered collection of data
+
+var arr = [12,'Ashish',true,23.4]
+
+console.log(arr)
+
+// accessing the elements of array
+
+console.log(arr[1])
+
+// replacing the existing element of array
+
+arr[1] = 'Python'
+console.log(arr)
+
+// length of array
+
+console.log("The length of array is ",arr.length)
+
+
+// inbuilt array menthods
+
+var arr2 = [34,66,77,21]
+
+// pop element --> remove element from end of array and will return that element
+
+arr2.pop()
+
+console.log('poppped array : ',arr2)
+
+// puhs element --> add element to end of array
+
+arr2.push(233)
+
+console.log('Pushed array : ',arr2)
+
+
+// shift method --> removes the first element of array and return that value
+
+arr2.shift()
+
+console.log('Shifted array : ',arr2)
+
+// unshift method --> add the element at index 0 of array
+
+arr2.unshift(123)
+
+console.log('Unshifted array : ',arr2)
+
+************************************************************************************************
+// Objects
+************************************************************************************************
+
+// Everything in JS is object
+// In JS, an object is unordered collection of key-value pairs. Each key-value pair is called as property.
+// A key of property can be string and value of property can be any value i.e string ,number, array or even function
+// JS provides you wth many ways to create object. The most commonly used one is to use the object literal notatipn.
+
+var person = {
+    firstName : 'Ashish',
+    lastName : 'Khedekar',
+    age : 23,
+    skills : ['Python', 'JS']
+}
+
+// accessing the objects
+
+// 1. dot notation
+
+console.log(person.firstName,person.lastName)
+
+// 2. bracket notation
+
+console.log(person['age'])
+
+
+var favCricketer = {
+    firstName : 'Rohit',
+    lastName : 'Sharma',
+    age : 34,
+    isCWCWinner : false,
+    friends : ['Virat Kohli', 'KL Rahul', 'Shubman Gill'],
+    address : {
+        state : 'Maharashtra',
+        city : {
+            name : 'Mumbai',
+            pincode : 400068,
+        }
+    }
+}
+
+
+console.log(favCricketer.friends[0])
+
+console.log(favCricketer.address.city.name)
+
+// updating the existing properties
+
+favCricketer.isCWCWinner = true
+
+console.log('Updated object : ',favCricketer)
+
+// add new key value pair 
+
+favCricketer.iplTropies = 5
+
+console.log('Added new property : ',favCricketer)
+
+// deleting property
+
+delete favCricketer.isCWCWinner
+
+console.log('Deleted some property : ',favCricketer)
+
+************************************************************************************************
+// Conditional Statements
+************************************************************************************************
+
+
+// if - else statement
+
+var myScore = 90
+
+if (myScore > 90){
+    console.log('Yayy got a bicycle!')
+}
+
+else{
+    console.log("Oops didn't make it this time!")
+}
+
+// if - else if - else statement
+// Greater than equal to 90 -- Grade A
+// 70 to 89 -- Grade B
+// 50 to 69 -- Grade C
+// Lower than 50 -- Grade F
+
+var marks = 35
+
+if (marks >= 90){
+    console.log('Student got a Grade A')
+}
+
+else if (marks >= 70 && marks <= 89){
+    console.log('Student got a Grade B')
+}
+
+else if (marks >= 50 && marks <= 69){
+    console.log('Student got a Grade C')
+    
+}
+
+else {
+    console.log('Oops! Student got a Grade F')
+}
+
+ 
+************************************************************************************************
+// Control Statements :
+************************************************************************************************
+
+
+// For Loop
+// Loops are basically used to control the flow of program and do repetative task
+
+var nums = [2,3,4,5,6,7,8]
+var squaredArr = []
+for(var i = 0; i < nums.length; i++){
+    squaredArr.push(nums[i] * nums[i])
+}
+
+console.log('squaredArray : ',squaredArr)
+
+
+// While Loop
+
+var i = 1
+var n = 10
+console.log('Printing 1 to 10 using while loop : ')
+while (i <= n){
+    console.log(i)
+    i++
+}
+
+
+// Do while loop
+
+var j = 11
+var m = 10
+console.log('Printing using do while loop : ')
+do {
+    console.log(i)
+    i++
+} while (i <= n)
+
+
+// For-in Loops
+// In JS, for-in loops allows you to loop through the properties of the object
+
+var colors = {
+    primary : 'Blue',
+    secondary : 'Grey',
+    danger : 'Red'
+}
+console.log('Printing using for-in loops :')
+for (var color in colors) {
+    console.log(color + ' -> ' + colors[color])
+}
+
+// Iterting arrays using for-in looops
+
+var colorsArray = ['Yellow','Blue','Orange','Pink']
+console.log('Printing array using for-in loops :')
+for (var color in colorsArray) {
+    console.log(color + ' -> ' + colorsArray[color])
+}
+
+
+
+// For-of Loops :
+// The for-of loops creates a loop iterating over iterable objects
+// includes : string, arrys and arrays-like objects like NodeList and also map and set
+// The differene between for-in and for-of is for-in holds key and for-of hold value
+
+
+var scores = [34,56,89,67]
+console.log('Printing using for-of loop :')
+for (var score of scores) {
+    console.log(score)
+}
+
+// if we want index to be print or access use entries method
+console.log('Printing using entries method : ')
+for (var [index, score] of scores.entries()) {
+    console.log(index + ' -> ' + score)
+}
+
+// iterating over string using for-of loops :
+
+var str = 'Ashish'
+console.log('Printing string using for-of looop : ')
+for (var c of str) {
+    console.log(c)
+}
+
+
+************************************************************************************************
+// Functions in JS
+************************************************************************************************
+
+// Functions are block of code that performs some task on invokation of it.
+
+// Basic fundtion
+
+function greet() { // function defination or declaration
+    console.log('Hello ! Good Morning')
+}
+
+greet()  // function invokation or function calling
+
+// Parameters and Arguments
+// parameter -> defined in function defination
+// arguments -> passed when we call function 
+
+function add(a,b) {
+    console.log(a + b)
+}
+
+add(2,3)
+
+add(4,6)
+
+
+// Functions as Expression 
+
+// In this we basically create one anonoymous function and assign it to one variable
+
+var add = function(a, b){
+    return a + b
+}
+
+var sum = add
+
+var result = sum(4,7)
+
+console.log('Result of function as expression : ' + result)
+
+
+// Hoisting :
+
+// 1. every variable which is called above declaration will result as undefined 
+// bcz whenever code execution begins first memory allocation is done and then code execution starts
+
+// 2. basic function will give result as they are declared during memory allocation phase
+
+// 3. function expression also reacts same as variables
+
+
+console.log(a)
+sub(2,3)
+greet()
+
+var a = 'hi'
+
+function greet(){
+    console.log('Good Morning')
+}
+
+
+var sub = function(a,b){
+    console.log(a + b)
+}
+
+
+************************************************************************************************
+// ES6 in JS :
+************************************************************************************************
+
+// Problems with var keyword
+
+// 1. It allows redeclaration of a variable
+
+var a = 21
+
+var a = 32
+
+console.log(a)
+
+// 2. variables declared with var keyword are not blocked scope they are function scope
+
+var num = 67
+
+if (num === 67){
+    var num1 = 6909
+    console.log('Inside if loop : ',num1)
+}
+
+console.log('Outside if loop : ',num1)
+
+
+// with function
+
+function test() {
+    var c = 87
+    console.log('Inside for loop : ',c)
+}
+
+test()
+// console.log('Outside for loop : ',c)
+
+************************************************************************************************
+// let keyword :
+************************************************************************************************
+
+// 1. Redeclaration of variable is not allowed
+// 2. Reassignment is allowed using let keyword
+// 2. It is block scoped
+
+let key = 89
+
+console.log('Before reassigmnent : ',key)
+// let key = 90
+
+key = 67
+
+console.log('After reassigmnent : ',key)
+
+
+if (true){
+    let newKey = 56
+    console.log('Inside block : ',newKey)
+}
+
+// console.log('Outside block : ',newKey) // will get error
+
+************************************************************************************************
+// const keyword :
+************************************************************************************************
+
+// 1. Redeclaration and reassignment is not allowed
+// 2. It is block scoped
+
+const ans = true
+
+// const ans = false // redeclaration is not allowed
+
+// ans = false
+
+// console.log(ans) // reassignment is not allowed
+
+console.log(ans)
+
+
+if (true) {
+    const new_ans = 'true'
+    console.log(new_ans)
+}
+
+// console.log(new_ans) // it is block scoped
+
+
+************************************************************************************************
+// Arrow functions
+************************************************************************************************
+
+// Usage of arrow function will be seen after oops module
+
+let test1 = () => {
+    console.log('This is basic arrow function : ',1)
+}
+
+// we can make it one line function
+
+let test4 = () => console.log('This is one line function')
+
+let test2 = a => {
+    console.log('This is one parameter arrow function : ',a + 6)
+}
+
+let test3 = (a, b) => {
+    console.log('This is two parameter arrow function : ',a + b)
+}
+
+test1()
+
+test2(4)
+
+test3(3,6)
+
+test4()
+
+************************************************************************************************
+// template literal and mutliple line string :
+************************************************************************************************
+
+console.log(`Ashish
+is
+python
+programmer`)
+
+let mon = 'November'
+
+console.log(`This is ${mon} month.`)
+
+************************************************************************************************
+// Destructuring :
+************************************************************************************************
+
+// The destructuring assigment syntax is JS expression that makes it possible to unpack values
+// from arrays, or properties from objects into distinct variables
+
+let arr = ['Hi','I','am','Ashish']
+
+let [w, x, y, z] = arr
+
+console.log(x)
+
+// Destructuring the object
+// NOTE : We need to define key as variable name in object destructuring
+
+// let colors = {
+//     primary : 'Blue',
+//     secondary : 'Grey',
+//     danger : 'Red'
+// }
+
+// let {primary,secondary,danger} = colors
+
+// console.log(primary)
+// console.log(secondary)
+// console.log(danger)
+
+// --> We can change key variable name with another name
+
+// let colors = {
+//     primary : 'Blue',
+//     secondary : 'Grey',
+//     danger : 'Red'
+// }
+
+// let {primary:p,secondary:s,danger:d} = colors
+
+// console.log(p)
+// console.log(s)
+// console.log(d)
+
+// --> destructing nested objects
+
+let myobj = {
+    name : 'Ashish',
+    age : 23,
+    gender : 'Male',
+    address : {
+        country : 'India',
+        city : 'Mumbai'
+    }
+}
+
+let {name, age , gender, address : {country}} = myobj
+
+console.log(name)
+console.log(age)
+console.log(gender)
+console.log(country)
+
+************************************************************************************************
+// Modules & Modularity
+************************************************************************************************
+calc.js
+===========================
+function add(a,b) {
+    console.log(a + b)
+}
+
+function sub(a,b) {
+    console.log(a - b)
+}
+
+function mul(a,b) {
+    console.log(a * b)
+}
+
+function div(a,b) {
+    console.log(a / b)
+}
+
+module.exports = {
+    addition : add,
+    substraction : sub,
+    multiplication : mul,
+    division : div
+}
+
+=========================================
+script.js
+=========================================
+const calculator = require('./calc')
+
+calculator.addition(2,5)
+calculator.substraction(8,2)
+calculator.multiplication(4,4)
+calculator.division(4,2)
+
+=========================================
+
+
+
+
