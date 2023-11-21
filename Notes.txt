@@ -52,7 +52,7 @@ console.log(is_available)
 
 console.log('Arrays in JS')
 
-// Arrays provides an ordered collection of data
+// Arrays provides an ordered collection of data which can be of different data types
 
 var arr = [12,'Ashish',true,23.4]
 
@@ -72,7 +72,7 @@ console.log(arr)
 console.log("The length of array is ",arr.length)
 
 
-// inbuilt array menthods
+// inbuilt array methods
 
 var arr2 = [34,66,77,21]
 
@@ -82,7 +82,7 @@ arr2.pop()
 
 console.log('poppped array : ',arr2)
 
-// puhs element --> add element to end of array
+// push element --> add element to end of array
 
 arr2.push(233)
 
@@ -108,7 +108,7 @@ console.log('Unshifted array : ',arr2)
 // Everything in JS is object
 // In JS, an object is unordered collection of key-value pairs. Each key-value pair is called as property.
 // A key of property can be string and value of property can be any value i.e string ,number, array or even function
-// JS provides you wth many ways to create object. The most commonly used one is to use the object literal notatipn.
+// JS provides you with many ways to create object. The most commonly used one is to use the object literal notation.
 
 var person = {
     firstName : 'Ashish',
@@ -408,7 +408,8 @@ test()
 
 // 1. Redeclaration of variable is not allowed
 // 2. Reassignment is allowed using let keyword
-// 2. It is block scoped
+// 3. It is block scoped
+// 4. It added itself in window object
 
 let key = 89
 
@@ -433,6 +434,7 @@ if (true){
 
 // 1. Redeclaration and reassignment is not allowed
 // 2. It is block scoped
+// 3. It added itself in window object
 
 const ans = true
 
@@ -474,6 +476,16 @@ let test2 = a => {
 let test3 = (a, b) => {
     console.log('This is two parameter arrow function : ',a + b)
 }
+
+// fat arrow function with implicit return
+
+let func = () => 122
+console.log(func())
+
+// fat arrow function with implicit return
+
+let func = () => 'This is implicit return function'
+console.log(func())
 
 test1()
 
@@ -597,6 +609,120 @@ calculator.division(4,2)
 
 =========================================
 
+************************************************************************************************
+// Spread & Rest
+************************************************************************************************
 
+// Spread
+// It is used to do deep copy the array or object.
+
+// let arr = [3,5,6,7,8]
+
+// let arr1 = arr
+
+// console.log(arr1)
+
+// arr[1] = 789  // Here we change value if index 1 in arr it will affect arr1 too as this method do shallow copy of arr
+
+// console.log(arr1)
+
+// let myobj = {
+//     name : 'Ashish',
+//     age :  34,
+//     gender : 'M'
+// }
+
+// let myobj1 = myobj
+
+// console.log(myobj1)
+
+// myobj.age = 23 // same thing happen in objects
+
+// console.log(myobj1)
+
+// To overcome above problem we use spread
+
+let arr = [34,5,6,7]
+
+let arr1 = [...arr]
+
+console.log(arr1)
+
+arr[1] = 89798
+// arr1[1] = 90
+console.log(arr1)
+
+
+// for objects
+
+let myobj = {
+    name : 'Ashish',
+    age : 34,
+}
+
+let myobj1 = {...myobj}
+
+console.log(myobj1)
+
+myobj.age = 23
+// myobj1.age = 23
+console.log(myobj1)
+
+
+// ===========================================================================================
+
+// Rest
+// It is used whenever we need to take multiple values at a time or we need to store remaining values in one variable
+
+function abcd(a,b,c,...d){
+    console.log(a,b,c,d)
+    console.log(d[5].name)
+}
+
+abcd(1,2,3,4,5,6,6,7,{name : 'Ashish'})
+
+************************************************************************************************
+// Functional Programming
+************************************************************************************************
+
+// It is programming paradigm designed to handle functions in better way in JS (mainly pure function)
+
+// Imperative and declarative functions :
+
+
+
+// Imperative functions : How to go about a problem (approach/structure/logic)
+
+// Problem : we will be given number and need to check if square of the number is even or not
+
+// Imperative way of writing code
+
+const num = 4
+
+const squared = num * num
+
+let isEven;
+
+if (squared % 2 == 0) {
+    isEven = true
+}
+else {
+    isEven = false
+}
+
+console.log('Imperative way of writing code : ',isEven)
+
+
+
+
+// Declarative functions : What to achieve from the problem (shorten the code)
+
+// Declarative way of writing code
+
+const checkForSquare = num => (num * num % 2 == 0 ? true : false)
+
+console.log('Declarative way of writing code : ',checkForSquare(5))
+
+************************************************************************************************
 
 
