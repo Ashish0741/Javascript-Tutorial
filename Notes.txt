@@ -1230,3 +1230,140 @@ checkEvenNumber(isEven, 16)
 // myObj.myFun()
 
 // ************************************************************************************************
+// Constructor Functions :
+// ************************************************************************************************
+
+// It is used for reusability of the code or we can say it works as template
+// we can create constructor function using new keyword and it will starting pointing to this keyword of function
+
+// function createCar(name, company, color) {
+//     this.name = name
+//     this.company = company
+//     this.color = color
+
+//     this.drive = function () {
+//         console.log(`I am driving ${this.name} and it is of ${this.color} color 🤩.`)
+//     }
+// }
+
+// let car1 = new createCar('X4','BMW','White')
+
+// console.log(car1)
+
+// let car2 = new createCar('S-class', 'Mercedes', 'Silver')
+
+// console.log(car2)
+
+// // also we can add method to above constructor function
+
+// car1.drive() 
+
+// car2.drive()
+
+
+// ************************************************************************************************
+// Classes :
+// ************************************************************************************************
+
+// It is blueprint or template which consists of data and methods
+
+// class Person {
+//     constructor(name, age){
+//         this.name = name
+//         this.age = age
+//     }
+
+//     canDrive(){
+//         (this.age > 18 ? console.log(`Hey! ${this.name} your age is above 18 hence you can drive`) : console.log(`Hey! ${this.name} your age is below 18 hence you can't drive`))
+//     }
+// }
+
+// let person1 = new Person('Ashish',23)
+
+// person1.canDrive()
+
+// let person2 = new Person('Shivani',16)
+
+// person2.canDrive()
+
+// ************************************************************************************************
+// Classical Inheritance :
+// ************************************************************************************************
+
+// It is used for code reusability
+// Properties and methods of Base class can be put down or accessed in derived class
+// extends keyword is used for inheritance
+// super method is used to access properties of base class
+
+// class Person {
+//     constructor(name, age){
+//         this.name = name
+//         this.age = age
+//     }
+
+//     greet(){
+//         console.log(`Hey! Good Morning ${this.name}`)
+//     }
+// }
+
+// class Teacher extends Person{
+//     constructor(name, age, department){
+//         super(name, age)
+//         super.greet() // calling base class method on constructor invokation
+//         this.department = department
+//     }
+// }
+
+// class Student extends Person {
+//     constructor(name, age, subjects){
+//         super(name, age)
+//         this.subjects = subjects
+//     }
+
+//     greeting(){
+//         super.greet() // calling base class method in derived method using super keyword
+//     }
+// }
+
+
+// let teacher = new Teacher('Ashish', 23, 'IT')
+
+// console.log(teacher)
+
+
+// let student = new Student('Shivani', 23, ['IT','Maths','Science'])
+// student.greeting() 
+// console.log(student)
+
+// ************************************************************************************************
+// Polymorphism :
+// ************************************************************************************************
+
+// poly --> many
+// morph --> forms
+// ism --> method
+// It means that one can have many forms
+
+// class Animal {
+//     sound(){
+//         console.log('Animal can make different sounds')
+//     }
+// }
+
+// class Dog extends Animal{
+//     // sound(){
+//     //     console.log('Dog barks')
+//     // }
+    
+// }
+
+// class Cat extends Animal{
+//     sound(){
+//         console.log('Cat mews')
+//     }
+// }
+
+// let dog = new Dog()
+// dog.sound()
+
+// ************************************************************************************************
