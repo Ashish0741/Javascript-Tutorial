@@ -672,3 +672,146 @@
 
 // ************************************************************************************************
 
+// Encapsulation :
+// It is used to hide the properties of class or function
+
+// using function
+
+// function Person(_name, _age) {
+//     var name = _name // here var keyword is working as access modifier
+//     var age = _age
+
+//     this.getName = function(){
+//         return name
+//     }
+
+//     this.getAge = function(){
+//         return age
+//     }
+// }
+
+// let person1 = new Person('Ashish',23)
+
+// console.log(person1)
+// console.log(person1.getName())
+// console.log(person1.getAge())
+
+// // updating existing properties
+
+// person1.name = 'Shivani' // not updating existing properties
+
+// console.log(person1.getName()) // still it is showing 'Ashish'
+
+// ================================================
+
+// using class 
+
+// class Person {
+//     constructor(name, age){
+//         this._name = name
+//         this._age = age
+//     }
+
+//     get getName(){
+//         return this._name
+//     }
+
+//     set setName(name){
+//         this._name = name
+//     }
+// }
+
+// let person2 = new Person('Ashish',23)
+
+// console.log(person2)
+
+// console.log(person2.getName)
+
+// person2._name = 'Shivani'
+
+
+// console.log(person2)
+
+// ************************************************************************************************
+
+// Prototype :
+// In JavaScript, the prototype is an internal property of objects that is used for inheritance. 
+// Each object in JavaScript has a prototype, which is a reference to another object. 
+// we can create our own prototype method in our object prototype
+
+// Prototype chainig :
+// When you access a property on an object, and if the property is not found on the object itself, 
+// JavaScript looks for the property in the object's pre-built prototype, and this process continues up the prototype chain until the property is found or the end of the chain is reached. 
+
+
+// function Person(name, age){
+//     this.name = name
+//     this.age = age
+// }
+
+// // creating prototype method
+
+// Person.prototype.getNameAndAge = function(){
+//     console.log(`My name is ${this.name} and my age is ${this.age}`)
+// }
+
+// let person1 = new Person('Ashish',23)
+
+// console.log(person1)
+
+// person1.getNameAndAge()
+
+
+// let person2 = new Person('Shivani',24)
+
+// console.log(person2)
+
+// person2.getNameAndAge()
+
+// ************************************************************************************************
+
+// call, apply and bind :
+
+// call method :
+// The call method is used to invoke a function with a specific 'this' value and arguments provided individually.
+// It immediately executes the function with the specified this value and arguments.
+
+// let printDetails = function(city){
+//     console.log(`Hey ! My name is ${this.name} and I am ${this.age} years old and I am from ${city}`)
+// }
+
+// let person1 = {
+//     name : 'Ashish',
+//     age : 23
+// }
+
+// printDetails.call(person1,'Mumbai')
+
+
+// apply method :
+// The apply method is similar to call, but it takes an array of arguments instead of individual arguments.
+
+
+// let person2 = {
+//     name : 'Shivani',
+//     age : 23
+// }
+
+// printDetails.apply(person2,['Nashik'])
+
+
+// bind method :
+// The bind method is used to create a new function with a specified this value and initial arguments.
+// It does not immediately execute the function but returns a new function that, when called, has the this value and arguments provided during the bind call.
+
+// let person3 = {
+//     name : 'Adarsh',
+//     age : 21
+// }
+
+// let bindFunc = printDetails.bind(person3,'Lonere')
+
+// bindFunc()
+
+
+// ************************************************************************************************
