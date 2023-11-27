@@ -815,3 +815,200 @@
 
 
 // ************************************************************************************************
+
+// Synchronous programming :
+// It means it is single threaded, so only one operation or program will run at a time.
+
+// Asynchronous programming :
+// It means a server can send multiple requests at a time.
+
+// how async code works :
+// there are 3 queues :
+// 1. callstack queue -> here all sync code go and execute one by one
+// 2. node/browser apis -> all callback functions goes here and wait until all sync code gets completed
+// 3. callback queue -> all callback functions comes here in random order and wait for event loop
+// 4. event loop --> it work as security it checks if callstack queue is empty if it is then it will send one callback func to callstack for execution
+
+// In above working callback function execution is in random manner
+// To make execution in serial manner we can call next function at the end of previous function
+
+// const fs = require('fs')
+// console.log('Started')
+
+// fs.readFile('f1.txt',cb1)
+
+// function cb1(error, data){
+//     if (error){
+//         console.log(error)
+//     }
+//     else {
+//         console.log('File 1 data -> ',data)
+//     }
+//     fs.readFile('f2.txt',cb2)
+// }
+
+// function cb2(error, data){
+//     if (error){
+//         console.log(error)
+//     }
+//     else {
+//         console.log('File 2 data -> ',data)
+//     }
+//     fs.readFile('f3.txt',cb3)
+// }
+
+// function cb3(error, data){
+//     if (error){
+//         console.log(error)
+//     }
+//     else {
+//         console.log('File 3 data -> ',data)
+//     }
+// }
+
+// console.log('Completed')
+
+// ==============================================================
+
+// setTimeout function :
+// It is async function
+// It takes two parameter -> setTimeout(callback function, timeout in milisecond)
+
+// console.log('Started')
+
+// function greet(){
+//     console.log('Hello from setTimeout function')
+// }
+
+// setTimeout(greet, 5000)
+
+// console.log('Completed')
+
+
+// -----------------------------------------
+
+// setInterval function :
+// it is async finction
+// it will run after every milisecond mention in paramter
+// it takes two parameter -> setInterval(callback function, time in milisecond)
+
+// console.log('Started')
+
+// function hello(){
+//     console.log('Hello from setInterval')
+// }
+
+// let timer = setInterval(hello, 1000)
+
+// // to break setInterval function we require setTimeout and clearInterval function
+
+// setTimeout(function(){
+//     clearInterval(timer)
+// },3000)
+
+// console.log('Completed')
+
+// ************************************************************************************************
+
+// Promises :
+
+// In JavaScript, promises are a programming construct that represents the eventual completion or failure of an asynchronous operation and its resulting value. 
+// They provide a cleaner and more organized way to work with asynchronous code compared to traditional callback functions.
+
+// how to construct a promise
+
+// let myPromise = new Promise(function(resolve, reject){
+//     const a = 6
+//     const b = 6
+
+//     setTimeout(()=>{
+//         if (a === b){
+//             resolve('The values are equal')
+//         }
+//         else{
+//             reject('The values are not equal')
+//         }
+//     },2000)
+// })
+
+// consuming a promise
+
+// pending state
+
+// console.log(myPromise)
+
+// fulfiled state
+
+// myPromise.then(function(result){
+//     console.log(result)
+// })
+
+// // rejected state
+
+// myPromise.catch(function(error){
+//     console.log(error)
+// })
+
+// settled state
+
+// we can right fulfiled or rejected on below manner
+
+// myPromise
+// .then((result1)=>{
+//     console.log(result1)
+// })
+// .catch(function(error){
+//     console.log(error)
+// })
+
+// ===========================================================================
+
+// problem : create a coffee shop which only takes orders of coffee
+
+// function coffeeShop(order){
+//     return new Promise(function(resolve, reject){
+//         if (order === 'coffee'){
+//             resolve('Order has been placed')
+//         }
+//         else {
+//             reject('Order has been rejected')
+//         }
+//     })
+// }
+
+// function processOrder(order){
+//     return new Promise(function(resolve){
+//         console.log('Order is being processing ....')
+//         resolve(`${order} and is served.`)
+//     })
+// }
+
+// coffeeShop('coffee').then(function(orderPlaced){
+//     console.log(orderPlaced)
+//     return processOrder(orderPlaced)
+// }).then(function(processedOrder){
+//     console.log(processedOrder)
+// }).catch(function(orderRejected){
+//     console.log(orderRejected)
+// }) // chaining of promise
+
+
+// async await --> this are keyword which makes promises much simplier
+// In async await we need to use try catch block to handle rejected cases
+// writing above code using async await
+
+// async function serverOrder(){
+//     try {
+//         let orderPlaced = await coffeeShop('coffee')
+//         console.log(orderPlaced)
+//         let processedOrder = await processOrder(orderPlaced)
+//         console.log(processedOrder)
+//     } catch (error) {
+//         console.log(error)
+//     }
+// }
+
+// serverOrder()
+
+// ************************************************************************************************
+
