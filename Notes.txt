@@ -1710,3 +1710,143 @@ checkEvenNumber(isEven, 16)
 // serverOrder()
 
 // ************************************************************************************************
+// Comparison Operators :
+// ************************************************************************************************
+
+// loose checking or '==' :
+// This operator will be check only value 
+
+// let a = 6
+// let b = '6'
+
+// console.log(a==b)
+
+
+// strict checking or '===' :
+// This operator will check both value and type
+
+// let x = 4
+// let y = '4'
+
+// console.log(x===y)
+
+
+// ====================================================================================================
+// Truthy & Falsy :
+// ====================================================================================================
+
+// All falsy values :
+// false
+// 0
+// -0
+// 0n
+// '',"",``
+// NaN
+// null
+// undefined
+
+// let a = 1
+
+// if (a){
+//     console.log('I am truthy')
+// }
+// else {
+//     console.log('I am falsy')
+// }
+
+// problem :
+
+// (function(){
+//     if ((-100 && 100 && "0") || [] === true || 0){
+//         console.log(1) ✅
+
+//         if ([] || (0 && false)) {
+//             console.log(2) ✅
+//         }
+
+//         if (Infinity && NaN && 'false') {
+//             console.log(3)
+
+//             if ('') {
+//                 console.log(4)
+//             }
+//         }
+//         else{
+//             console.log(5) ✅
+
+//             if (({} || false === '') && !(null && undefined)) {
+//                 console.log(6) ✅
+//             }
+//         }
+//     }
+// })()
+
+
+// ----------------------------------------------------------------------------------------------
+// Primitive Data Types :
+// ----------------------------------------------------------------------------------------------
+
+// They are immutable and cannot change once assign
+// It is stored in stack memory
+
+// Numbers, Strings, Booleans, Null, Undefined are of primitive data types
+
+// let a = 5
+
+// let b = a
+
+// a = 4
+
+// console.log(a)
+// console.log(b)
+
+// let x = 'Ashish'
+
+// let y = x
+
+// x = 'SK'
+
+// console.log(x)
+// console.log(y)
+
+// let n = true
+
+// let m = n
+
+// n = false
+
+// console.log(n)
+// console.log(m)
+
+// -------------------------------------------------------------------------------------
+// Reference Data Types :
+// -------------------------------------------------------------------------------------
+
+// They are mutable and can be changed
+// They are stored in heap memory but address of heap memory is stored in stack memory
+
+// objects, arrays and functions are reference data types
+
+// let firstPerson = {
+//     name : 'Ashish',
+//     age : 23
+// }
+
+// let secondPerson = firstPerson
+
+// firstPerson.name = 'Shivani'
+
+// console.log(firstPerson)
+// console.log(secondPerson)
+
+
+// let firstPerson = [1,2,4,5,6]
+
+// let secondPerson = firstPerson
+
+// firstPerson[2] = 0
+
+// console.log(firstPerson)
+// console.log(secondPerson)
+
+// -------------------------------------------------------------------------------------------
