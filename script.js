@@ -1150,5 +1150,112 @@
 
 // -------------------------------------------------------------------------------------------
 
+// Shallow Copy :
+// To overcome the problem of referencing we use shallow copy i.e spread operator {...}
+
+// let firstPerson = {
+//     name : 'Ashish',
+//     age : 23
+// }
+
+// let secondPerson = {...firstPerson}
+
+// secondPerson.name = 'Shivani'
+
+// console.log(firstPerson)
+// console.log(secondPerson)
+
+// but shallow copy will not work on nested objects
+
+// let firstPerson = {
+//     name : 'Ashish',
+//     age : 23,
+//     address : {
+//         city : 'Mumbai',
+//         state : 'MH'
+//     }
+// }
+
+// let secondPerson = {...firstPerson}
+
+// secondPerson.address.city = 'Pune' // here both objects gets changed
+
+// console.log(firstPerson)
+// console.log(secondPerson)
 
 
+// ===============================================================================
+
+// Deep Copy :
+// This is used to overcome the problem with shallow copy 
+// It will make separate reference for all objects which are getting created with reference to previous one
+// we use JSON.parse(JSON.stringfy(object))
+
+
+// let firstPerson = {
+//     name : 'Ashish',
+//     age : 23,
+//     address : {
+//         city : 'Mumbai',
+//         state : 'MH'
+//     }
+// }
+
+// let secondPerson = JSON.parse(JSON.stringify(firstPerson)) // Deep copy
+
+// secondPerson.address.city = 'Pune' // here both objects gets changed
+
+// console.log(firstPerson)
+// console.log(secondPerson)
+
+// ===============================================================================
+
+// Closures :
+
+// In JavaScript, a closure is a combination of a function and the lexical environment within which that function was declared. 
+// A lexical environment consists of any local variables that were in-scope at the time the closure was created. 
+// In simpler terms, a closure allows a function to access variables from its outer (enclosing) scope even after the outer function has finished executing.
+
+// function outerFunction() {
+//     let a = 9
+
+//     function innerFunction(){
+//         console.log(a)
+//     }
+
+//     return innerFunction
+// }
+
+// let fun = outerFunction()
+
+// fun()
+
+
+// ------------------------------------------
+
+// function outerFunction() {
+//     let age = 9
+
+//     function innerFunction(){
+//         console.log(age)
+
+//         let name = 'Ashish'
+
+//         function greet(){
+//             console.log(`My name is ${name} and I am ${age} years old`)
+//         }
+        
+//         return greet
+//     }
+
+//     return innerFunction
+// }
+
+// let fun = outerFunction()
+
+// let g1 = fun()
+
+// fun()
+// g1()
+
+// ===============================================================================
