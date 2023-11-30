@@ -1962,3 +1962,72 @@ checkEvenNumber(isEven, 16)
 // g1()
 
 // ===============================================================================
+
+// ===============================================================================
+
+// Function Currying :
+
+// Currying is a technique in functional programming where a function is transformed into a sequence of functions, each taking a single argument. 
+// The curried function returns a new function for each argument until it receives all the necessary arguments and finally evaluates the original function.
+
+
+// Manual currying
+// function curry(fn, ...args) {
+//     return function (...newArgs) {
+//         const allArgs = [...args, ...newArgs];
+//         console.log(allArgs)
+//         if (allArgs.length >= fn.length) {
+//             return fn(...allArgs);
+//         } else {
+//             return curry(fn, ...allArgs);
+//         }
+//     };
+// }
+
+// // Example usage
+// function add(a, b, c) {
+//     return a + b + c;
+// }
+
+// const curriedAdd = curry(add);
+// // console.log(curriedAdd)
+// console.log(curriedAdd(1)(2)(3)); // Output: 6
+// console.log(curriedAdd(1, 2)(3)); // Output: 6
+// console.log(curriedAdd(1)(2, 3)); // Output: 6
+// console.log(curriedAdd(1, 2, 3)); // Output: 6
+
+// ===============================================================================
+
+// typeof :
+// It is used to check the type of any variable
+
+// let a = 9
+
+// console.log(typeof a)
+
+// let b = 'Ashish'
+
+// console.log(typeof b)
+
+// let c = {
+//     name : 'ashish'
+// }
+
+// console.log(typeof c)
+
+// let arr = [344,6,7,8,]
+
+// console.log(typeof arr)
+
+// ===============================================================================
+
+// Array.isArray :
+// This will help to check type of array
+
+// let arr = [3,4,5,6,]
+
+// let checkArrayType = Array.isArray(arr)
+
+// console.log(checkArrayType)
+
+// ===============================================================================
